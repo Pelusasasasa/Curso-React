@@ -6,6 +6,26 @@
   body {
     padding: 60px;
   }
+
+  .form{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  button{
+    border: none;
+    background-color: greenyellow;
+    border-radius: 50px;
+    font-size: 20px;
+    
+  }
+
+  button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+  }
   
   input {
     background-color: white;
@@ -15,7 +35,7 @@
     font-size: 1.2rem;
     outline: none;
     padding: 10px 15px;
-    width: 100%;
+    width: 90%;
   }
   
   h2 {

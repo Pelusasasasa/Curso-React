@@ -1,12 +1,27 @@
-import { getGifs } from "../helpres/getGifs"
+import { GifGridItem } from "./GifGridItem";
+
+import '../styles.css';
+import { useFetchGifs } from "../hooks/useFetchGifs";
 
 export const GifGrid = ({category}) => {
-    getGifs(category);
+
+    const {images,isLoading} = useFetchGifs(category);
+    
 
     return (
         <>
             <h3>{category}</h3>
-            <p>hola Mundo</p>
+
+            {
+                isLoading && (<h2>Cargando...</h2>)
+            }
+
+            <div className="card-grid">
+                {images.map( ( image ) => (
+                    <GifGridItem key={image.id} { ...image }/>
+                ))}
+            </div>
+            
         </>
   )
 

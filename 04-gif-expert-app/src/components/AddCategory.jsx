@@ -1,6 +1,7 @@
 import {useState} from 'react';
-const apikey = '2pn5YpKp47DQywZy4NpidWL0sg9Yq4IB'
-export const AddCategory = ({onNewCategory}) => {
+const apikey = '2pn5YpKp47DQywZy4NpidWL0sg9Yq4IB';
+
+export const AddCategory = ({onNewCategory,resetCategory}) => {
 
     const [inputValue, setInputValue] = useState('');
 
@@ -19,16 +20,22 @@ export const AddCategory = ({onNewCategory}) => {
         setInputValue(event.target.value);
     };
 
+    const onReset = () => {
+        resetCategory();
+    }
+
   return (
+    <div className='form'>
+        <form onSubmit={ onSubmit }>
+            <input 
+                type="text"
+                placeholder="Buscar gifs"
+                value = {inputValue}
+                onChange = { onInputChange }
+            />
+        </form>
 
-    <form onSubmit={ onSubmit }>
-        <input 
-            type="text"
-            placeholder="Buscar gifs"
-            value = {inputValue}
-            onChange = { onInputChange }
-        />
-    </form>
-
+        <button onClick={onReset}>Reset</button>
+    </div>
   )
 };
