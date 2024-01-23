@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {useState} from 'react';
 const apikey = '2pn5YpKp47DQywZy4NpidWL0sg9Yq4IB';
 
@@ -26,7 +27,7 @@ export const AddCategory = ({onNewCategory,resetCategory}) => {
 
   return (
     <div className='form'>
-        <form onSubmit={ onSubmit }>
+        <form aria-label='form' onSubmit={ onSubmit }>
             <input 
                 type="text"
                 placeholder="Buscar gifs"
@@ -39,3 +40,8 @@ export const AddCategory = ({onNewCategory,resetCategory}) => {
     </div>
   )
 };
+
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired
+}
