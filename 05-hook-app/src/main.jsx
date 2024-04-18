@@ -17,9 +17,9 @@ import { TodoApp } from './08-useReducer/TodoApp'
 // import { CounterApp } from './01-useState/CounterApp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-    // <Padre />,
+  <React.StrictMode>
+    {/* <Padre />, */}
     <TodoApp/>
-  // </React.StrictMode>,
+  </React.StrictMode>,
   
 )
