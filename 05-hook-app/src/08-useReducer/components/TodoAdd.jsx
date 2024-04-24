@@ -9,21 +9,25 @@ export const TodoAdd = ({onNewTodo}) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    if (value !== "") {
+    if (description.trim().length >= 1) {
       onNewTodo({
         id: new Date().getTime(),
-        description: value,
+        description: description,
         done: false,
-      })
+      });
+
+      resetForm();
     }
   }
 
   return (
     <form onSubmit={onFormSubmit}>
-        <input type="text"
+        <input 
+        type="text"
          name='description'
          value={description}
-         onChange={onInputChange} placeholder="¿Que hay que hacer?" className="form-control"/>
+         onChange={onInputChange}
+          placeholder="¿Que hay que hacer?" className="form-control"/>
         <button type="submit" className="btn btn-outline-primary mt-1">Agregar</button>
     </form>
   )
