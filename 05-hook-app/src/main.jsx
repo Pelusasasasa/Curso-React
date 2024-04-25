@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { TodoApp } from './08-useReducer/TodoApp'
+import { MainApp } from './09-useContext/mainApp'
+import { BrowserRouter } from 'react-router-dom'
 // import { HooksApp } from './HooksApp'
 // import { SimpleForm } from './useEffect/SimpleForm'
 // import { FormWithCustomHook } from './useEffect/FormWithCustomHook'
@@ -17,9 +19,10 @@ import { TodoApp } from './08-useReducer/TodoApp'
 // import { CounterApp } from './01-useState/CounterApp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    {/* <Padre />, */}
-    <TodoApp/>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <MainApp />
+    </React.StrictMode>,
+  </BrowserRouter>
   
 )
