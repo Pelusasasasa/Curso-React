@@ -37,7 +37,7 @@ export const SearchPage = () => {
           <h4>Searching</h4>
           <hr />
 
-          <form onSubmit={onSearchSubmit}>
+          <form onSubmit={onSearchSubmit} aria-label="form">
             <input type="text" value={searchText} onChange={onInputChange} placeholder="Search a Hero" className="form-control" name="searchText" autoComplete="off" />
             <button className="btn btn-outline-primary mt-1">Search</button>
           </form>
@@ -52,7 +52,7 @@ export const SearchPage = () => {
             Search a Hero
           </div>
 
-          <div className="alert alert-danger" style={{ display: showError ? '' : 'none' }}>
+          <div aria-label="alert-danger" className="alert alert-danger" style={{ display: showError ? '' : 'none' }}>
             No Hero with <b>{q}</b>
           </div>
 
