@@ -8,7 +8,7 @@ import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 
-import { checkingAuthentication, startGoogleSignIn } from '../../store/auth';
+import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
 
 export const LoginPage = () => {
@@ -18,8 +18,8 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
 
   const {email, password, onInputChange} = useForm({
-    email: 'agustinlorenzatto@gmail.com',
-    password: 12345
+    email: '',
+    password: ''
   });
 
   const isAuthenticating = useMemo( () => status === 'checking', [status]);
@@ -27,9 +27,9 @@ export const LoginPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    dispatch( checkingAuthentication() );
+    dispatch( startLoginWithEmailPassword({email, password}));  
 
-  }
+  };
 
   const onGoogleSignIn = () => {
 
