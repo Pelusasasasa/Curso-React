@@ -1,19 +1,24 @@
 const express = require('express');
+const dbConnection = require('./DB/config');
 require('dotenv').config();
 //Crear el servidor de express
 const app = express();
 
-//Directorio publico
+//Base de datos
+dbConnection();
 
+//Directorio publico
 app.use( express.static('public') );
+
+//Lectura y parse del body
+app.use( express.json() );
 
 
 //Rutas
-// app.get('/', (req, res) => {
-//     res.json({
-//         ok: true
-//     })
-// });
+//TODO: auth // crear, login, renw
+//Todo: CRUS: Eventos
+
+app.use('/api/user', require('./routes/auth.route'))
 
 //Escuchar peticiones
 app.listen( process.env.PORT, () => {
