@@ -21,7 +21,8 @@ app.use( express.json() );
 //TODO: auth // crear, login, renw
 //Todo: CRUS: Eventos
 
-app.use('/api/user', require('./routes/auth.route'))
+app.use('/api/user', require('./routes/auth.route'));
+app.use('/api/events', require('./routes/events.route'));
 
 //Escuchar peticiones
 app.listen( process.env.PORT, () => {
