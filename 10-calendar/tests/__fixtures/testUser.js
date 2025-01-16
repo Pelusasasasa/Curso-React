@@ -1,5 +1,5 @@
 export const testUserCredentials = {
-    emai: 'test@google.com',
+    email: 'test@google.com',
     password: '123456',
     uid: 'abc',
     name: 'testUser'
