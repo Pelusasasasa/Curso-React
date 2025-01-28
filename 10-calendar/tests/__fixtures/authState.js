@@ -14,7 +14,7 @@ export const authenticatedState = {
     errorMessage: undefined,
 };
 
-export const not_authenticatedState = {
+export const notAuthenticatedState = {
     status: 'not-authenticated',// 'authenticated', 'not-authenticated'
     user: {},
     errorMessage: undefined,
