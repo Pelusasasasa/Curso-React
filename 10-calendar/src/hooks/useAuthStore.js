@@ -13,7 +13,8 @@ export const useAuthStore = () => {
         dispatch( onChecking() );
 
         try {
-            const {data} = await calendarApi.post('user', {email, password});
+            const {data} = await calendarApi.post('/user', {email, password});
+            console.log(data)
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch( onLogin({name: data.name, uid: data.uid}) ); 
@@ -27,7 +28,7 @@ export const useAuthStore = () => {
 
     const startRegister = async({name, email, password}) => {
         try {
-            const { data } = await calendarApi.post('user/new', {name, email, password});
+            const { data } = await calendarApi.post('/user/new', {name, email, password});
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch( onLogin({name: data.name, uid: data.uid}) );
@@ -46,9 +47,10 @@ export const useAuthStore = () => {
         if (!token) return dispatch( onLogout());
 
         try {
-            const { data } = await calendarApi.get('auth/renew');
+            const { data } = await calendarApi.get('/user/renew');
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
+            console.log('La data es: ', data)
             dispatch( onLogin({name: data.name, uid: data.uid}) ); 
         } catch (error) {
             localStorage.clear();

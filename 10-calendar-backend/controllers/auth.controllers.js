@@ -5,6 +5,7 @@ const { generarJWT } = require("../helpers/jtw");
 
 const userCTRL = {};
 
+
 userCTRL.crearUsuario = async(req,res) => {
 
     try {
@@ -96,6 +97,8 @@ userCTRL.loginUsuario = async(req, res) => {
 userCTRL.revalidarToken = async(req, res) => {
         const uid = req.uid;
         const password = req.password;
+        
+        let {name} = await Usuario.findOne({_id: uid});
 
         const token = await generarJWT( uid, password);
 
