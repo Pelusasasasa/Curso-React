@@ -33,6 +33,7 @@ eventsCTRL.crearEvento = async(req, res) => {
         })
     } 
 };
+
 eventsCTRL.putEventos = async(req, res) => {
 
     const eventoId = req.params.id;
@@ -73,6 +74,7 @@ eventsCTRL.putEventos = async(req, res) => {
         })   
     }
 };
+
 eventsCTRL.deleteEventos = async(req, res) => {
     const eventoId = req.params.id;
     const uid = req.uid;
